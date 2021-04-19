@@ -1,6 +1,7 @@
 package com.iqmsoft.boot.backbone.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,7 +42,7 @@ public class CustomerService {
 	}
 
 	public Customer find(Long id) {
-		return repository.findOne(id);
+		return repository.findById(id).get();
 	}
 
 	public Customer findByName(String name) {

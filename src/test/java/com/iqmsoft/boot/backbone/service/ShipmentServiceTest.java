@@ -1,6 +1,7 @@
 package com.iqmsoft.boot.backbone.service;
 
 import java.util.Calendar;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -33,6 +34,8 @@ public class ShipmentServiceTest {
 
 	@Test
 	public void testCreate() {
+		
+		List<Shipment> l = null;
 
 		Customer customer = customerService.find(1l);
 
@@ -54,9 +57,17 @@ public class ShipmentServiceTest {
 
 		service.save(shipment);
 
-		shipment = service.find(1);
-
-		System.out.println(shipment.getItems());
+		try
+		{
+		          l = service.findAll();
+		}
+		catch(Exception e)
+		{
+		     if (l != null)
+		     {
+			      System.out.println(l.size());
+		     }
+		}
 
 	}
 

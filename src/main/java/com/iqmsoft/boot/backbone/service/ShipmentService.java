@@ -21,7 +21,7 @@ public class ShipmentService {
 	ItemRepository itemRepository;
 
 	public Shipment find(long id) {
-		return repository.findOne(id);
+		return repository.findById(id).get();
 	}
 
 	public List<Shipment> findAll() {
